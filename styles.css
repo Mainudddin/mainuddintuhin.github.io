@@ -1,0 +1,167 @@
+/* Custom Styles */
+
+.nav-link {
+    @apply text-slate-600 hover:text-blue-500 transition-colors font-medium;
+}
+
+/* Skill Bar Animation */
+.skill-bar {
+    width: 0%;
+    transition: width 1s ease-out;
+}
+
+.skill-bar.animated {
+    animation: fillBar 1s ease-out forwards;
+}
+
+@keyframes fillBar {
+    from {
+        width: 0%;
+    }
+    to {
+        width: var(--target-width);
+    }
+}
+
+/* Skill Tag */
+.skill-tag {
+    @apply px-4 py-2 bg-slate-100 rounded-full text-sm font-medium text-slate-700 hover:bg-blue-100 hover:text-blue-700 transition-colors cursor-default;
+}
+
+/* Project Card Hover Effect */
+.project-card {
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Smooth Scroll Offset for Fixed Header */
+html {
+    scroll-padding-top: 80px;
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger Animation Delays */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+
+/* Navbar Background on Scroll */
+.navbar-scrolled {
+    @apply.bg-white shadow-md;
+}
+
+/* Mobile Menu Animation */
+#mobileMenu {
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+#mobileMenu.open {
+    max-height: 300px;
+    opacity: 1;
+}
+
+/* Button Hover Effects */
+.btn-primary {
+    @apply bg-blue-500 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300;
+}
+
+.btn-primary:hover {
+    @apply bg-blue-600 shadow-lg transform scale-105;
+}
+
+/* Timeline Item Animation */
+.timeline-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Card Hover Scale */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Focus States */
+a:focus, button:focus {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* Print Styles */
+@media print {
+    nav, .animate-bounce {
+        display: none;
+    }
+    
+    body {
+        background: white;
+    }
+    
+    section {
+        page-break-inside: avoid;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
